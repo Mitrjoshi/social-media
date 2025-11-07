@@ -17,9 +17,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ItemDescription, ItemHeader, ItemTitle } from "@/components/ui/item";
 import type { I_Post, I_User } from "@/interface";
+import { formatRelativeTime } from "../utils/formatRelativeTime";
+import { toast } from "sonner";
 
 type I_Props = Pick<I_User, "username" | "profile_name" | "avatar" | "bio"> &
-  Pick<I_Post, "timestamp">;
+  Pick<I_Post, "timestamp"> & {
+    url: string;
+  };
 
 export const PostHeader = ({
   username,
@@ -27,10 +31,16 @@ export const PostHeader = ({
   avatar,
   timestamp,
   bio,
+  url,
 }: I_Props) => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url);
+    toast.success("Copied");
+  };
+
   return (
     <ItemHeader className="flex items-center justify-between h-5 w-full">
-      <section className="flex gap-3 items-center">
+      <section className="flex gap-2 items-center">
         <HoverCard>
           <HoverCardTrigger onClick={() => {}}>
             <Link className="cursor-pointer" to={`/@${username}`}>
@@ -67,7 +77,10 @@ export const PostHeader = ({
             </div>
           </HoverCardContent>
         </HoverCard>
-        <ItemDescription>{timestamp.toISOString()}</ItemDescription>
+        <span className="h-1 w-1 bg-muted-foreground rounded-full" />
+        <ItemDescription>
+          {formatRelativeTime(timestamp.toISOString())}
+        </ItemDescription>
       </section>
 
       <section>
@@ -79,13 +92,16 @@ export const PostHeader = ({
           </DropdownMenuTrigger>
 
           <DropdownMenuContent className="rounded-xl p-2">
-            <DropdownMenuItem className="w-54 rounded-lg py-0!">
+            <DropdownMenuItem
+              onClick={handleCopy}
+              className="w-54 rounded-lg py-1!"
+            >
               <div className="flex items-center justify-between w-full">
-                <DropdownMenuLabel className="text-lg font-semibold">
+                <DropdownMenuLabel className="text-[1rem] font-semibold">
                   Copy Link
                 </DropdownMenuLabel>
 
-                <Link2 className="size-6 text-primary -rotate-45" />
+                <Link2 className="size-5 text-primary -rotate-45" />
               </div>
             </DropdownMenuItem>
           </DropdownMenuContent>

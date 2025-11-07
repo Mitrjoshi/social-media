@@ -137,3 +137,13 @@
     scale: 1.4;
   }
 }
+
+.minimal-toast {
+  transition: all 0.25s ease;
+  opacity: 0;
+}
+
+.minimal-toast[data-mounted="true"] {
+  transform: translateY(0);
+  opacity: 1;
+}

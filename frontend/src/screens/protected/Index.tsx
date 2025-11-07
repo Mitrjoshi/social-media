@@ -1,9 +1,12 @@
 import { Divider } from "@/components/shared/divider/Divider";
 import { Card } from "@/components/ui/card";
 import { data } from "@/data";
+import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 import { PostContainer } from "@/screens/protected/post/post-container/PostContainer";
 
 export const Index = () => {
+  useScrollRestoration();
+
   return (
     <div className="">
       <Card className="rounded-3xl p-0 w-full overflow-auto">

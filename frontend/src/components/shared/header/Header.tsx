@@ -17,7 +17,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="w-full top-0 bg-background sticky z-99 flex justify-center items-center">
+    <div className="w-full top-0 bg-background border-0 sticky z-99 flex justify-center items-center">
       <div className="relative w-full flex justify-center items-center">
         {pathname !== "/" && (
           <Button

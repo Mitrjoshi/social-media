@@ -45,7 +45,7 @@ export const data: I_Post[] = [
         url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",
       },
       {
-        url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",
+        url: "https://i.pinimg.com/1200x/dc/eb/7b/dceb7b53d2cabff6c87455db09031236.jpg",
       },
     ],
   },
@@ -82,7 +82,7 @@ export const data: I_Post[] = [
     reshares: 9,
     media: [
       {
-        url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",
+        url: "https://i.pinimg.com/1200x/dc/eb/7b/dceb7b53d2cabff6c87455db09031236.jpg",
       },
     ],
   },
@@ -97,10 +97,10 @@ export const data: I_Post[] = [
     reshares: 11,
     media: [
       {
-        url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",
+        url: "https://i.pinimg.com/736x/85/c8/2c/85c82cb6123945ba5dad312dbc69956b.jpg",
       },
       {
-        url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",
+        url: "https://i.pinimg.com/1200x/dc/eb/7b/dceb7b53d2cabff6c87455db09031236.jpg",
       },
       {
         url: "https://i.pinimg.com/1200x/18/a4/55/18a4558049811cbe16ed7db8a93bb878.jpg",

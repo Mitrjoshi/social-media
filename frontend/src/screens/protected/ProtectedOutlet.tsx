@@ -11,7 +11,10 @@ export const ProtectedOutlet = () => {
       <div className="mx-auto px-4 max-w-5xl w-full flex gap-4 h-full pb-8">
         <div className="w-full">
           <Header />
-          <Outlet />
+
+          <div className="w-[99%] mx-auto">
+            <Outlet />
+          </div>
         </div>
         <div className="mt-16 lg:block hidden">
           <LoginCard />

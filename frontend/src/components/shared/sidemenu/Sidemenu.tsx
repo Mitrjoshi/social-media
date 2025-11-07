@@ -2,18 +2,32 @@ import {
   ChartNoAxesGantt,
   Heart,
   House,
+  Moon,
   Pin,
   Plus,
   Search,
+  Sun,
   User,
 } from "lucide-react";
 import { SidemenuItem } from "./SidemenuItem";
 import { useLocation } from "react-router";
+import { useTheme } from "@/components/theme/theme-provider";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  ButtonGroup,
+  ButtonGroupSeparator,
+} from "@/components/ui/button-group";
+import { Button } from "@/components/ui/button";
 
 const MAIN_COLOR = "var(--color-primary)";
 
 export const Sidemenu = () => {
   const { pathname } = useLocation();
+  const { theme, setTheme } = useTheme();
 
   const ARRAY = [
     {
@@ -66,7 +80,7 @@ export const Sidemenu = () => {
       <section>
         <img
           className="h-[34px] w-[34px] hover:scale-110 duration-200 cursor-pointer"
-          src="/vite.svg"
+          src={theme === "light" ? "/vite-light.svg" : "/vite.svg"}
           alt=""
         />
       </section>
@@ -87,13 +101,46 @@ export const Sidemenu = () => {
           path="/pin"
           icon={<Pin className="size-7 text-sidebar-ring" />}
         />
-        <SidemenuItem
-          path="/"
-          iconActive
-          icon={
-            <ChartNoAxesGantt className="size-7 text-sidebar-ring group-hover:text-primary duration-200" />
-          }
-        />
+
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <SidemenuItem
+              path="/"
+              iconActive
+              icon={
+                <ChartNoAxesGantt className="size-7 text-sidebar-ring group-hover:text-primary duration-200" />
+              }
+            />
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent className="rounded-xl p-2 ml-2">
+            <ButtonGroup>
+              <Button
+                className="w-20"
+                onClick={() => setTheme("light")}
+                variant={theme === "light" ? "outline" : "ghost"}
+              >
+                <Sun className="text-muted-foreground size-5" />
+              </Button>
+              <ButtonGroupSeparator />
+              <Button
+                className="w-20"
+                onClick={() => setTheme("dark")}
+                variant={theme === "dark" ? "outline" : "ghost"}
+              >
+                <Moon className="text-muted-foreground size-5" />
+              </Button>
+              {theme !== "dark" && <ButtonGroupSeparator />}
+              <Button
+                className="w-20"
+                onClick={() => setTheme("system")}
+                variant={theme === "system" ? "outline" : "ghost"}
+              >
+                <p className="text-muted-foreground">Auto</p>
+              </Button>
+            </ButtonGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </section>
     </aside>
   );
